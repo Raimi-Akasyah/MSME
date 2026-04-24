@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Rakan Niaga — Turning AI into Economic Output for MSMEs</title>
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="https://pepperlabs.my/assets/logos/pepperlabs.png">
+<link rel="shortcut icon" type="image/png" href="https://pepperlabs.my/assets/logos/pepperlabs.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -157,14 +160,19 @@ nav.scrolled {
 }
 
 .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
-.logo-mark {
+
+/* Pepper Labs logo mark in nav — clean white pill container */
+.nav-logo-img-wrap {
   width: 34px; height: 34px; border-radius: 10px;
-  background: linear-gradient(135deg, var(--cobalt), #0A28A0);
+  background: #fff;
   display: flex; align-items: center; justify-content: center;
-  font-size: 16px;
-  box-shadow: 0 2px 10px var(--cobalt-glow);
-  flex-shrink: 0;
+  box-shadow: 0 2px 10px rgba(26,59,204,0.14);
+  flex-shrink: 0; overflow: hidden; padding: 4px;
 }
+.nav-logo-img-wrap img {
+  width: 100%; height: 100%; object-fit: contain; display: block;
+}
+
 .logo-name { font-family: var(--sans); font-size: 14.5px; font-weight: 600; letter-spacing: -0.2px; }
 
 .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
@@ -252,7 +260,27 @@ nav.scrolled {
   font-family: var(--sans);
 }
 .login-close:hover { background: rgba(0,0,0,0.10); color: var(--ink); }
-.login-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 30px; }
+
+/* Pepper Labs logo in login/signup overlay */
+.login-logo {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 30px;
+}
+.login-logo-img-wrap {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 3px 14px rgba(26,59,204,0.16);
+  flex-shrink: 0; overflow: hidden; padding: 6px;
+  border: 1px solid rgba(26,59,204,0.10);
+}
+.login-logo-img-wrap img {
+  width: 100%; height: 100%; object-fit: contain; display: block;
+}
+.login-logo-name {
+  font-family: var(--sans); font-size: 17px; font-weight: 700;
+  letter-spacing: -0.3px; color: var(--ink);
+}
+
 .auth-tabs {
   display: flex; background: rgba(0,0,0,0.04); border-radius: 14px;
   padding: 4px; margin-bottom: 26px; gap: 4px;
@@ -453,13 +481,20 @@ nav.scrolled {
   padding-bottom: 16px; margin-bottom: 16px;
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
+
+/* Pepper Labs logo in chat avatar */
 .chat-av {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--cobalt), #0A28A0);
+  width: 38px; height: 38px; border-radius: 50%;
+  background: #fff;
   display: flex; align-items: center; justify-content: center;
-  font-size: 16px; color: #fff;
   box-shadow: 0 0 0 3px rgba(26,59,204,0.14);
+  overflow: hidden; padding: 5px; flex-shrink: 0;
+  border: 1px solid rgba(26,59,204,0.12);
 }
+.chat-av img {
+  width: 100%; height: 100%; object-fit: contain; display: block;
+}
+
 .chat-name { font-size: 13.5px; font-weight: 600; }
 .chat-status {
   font-size: 11px; color: var(--jade); font-weight: 500;
@@ -477,8 +512,19 @@ nav.scrolled {
   width: 24px; height: 24px; border-radius: 50%;
   background: rgba(0,0,0,0.06);
   display: flex; align-items: center; justify-content: center;
-  font-size: 11px; flex-shrink: 0;
+  font-size: 11px; flex-shrink: 0; overflow: hidden;
 }
+
+/* Bot message icon — Pepper Labs logo */
+.msg-ico.bot-ico {
+  background: #fff;
+  border: 1px solid rgba(26,59,204,0.12);
+  padding: 3px;
+}
+.msg-ico.bot-ico img {
+  width: 100%; height: 100%; object-fit: contain; display: block;
+}
+
 .bubble {
   max-width: 80%; padding: 10px 14px; font-size: 13px; line-height: 1.55;
   border-radius: 16px;
@@ -594,7 +640,7 @@ nav.scrolled {
 .persona-card p { font-size: 12.5px; color: var(--ink2); line-height: 1.65; font-weight: 300; }
 
 /* ═══════════════════════════════════
-   RAG ARCHITECTURE (UNCHANGED FRAMEWORK)
+   RAG ARCHITECTURE
 ═══════════════════════════════════ */
 .sec-rag {
   position: relative; z-index: 1;
@@ -718,14 +764,20 @@ nav.scrolled {
   display: flex; flex-direction: column; align-items: center; gap: 16px;
   text-align: center;
 }
+
+/* Pepper Labs logo in ecosystem node */
 .eco-ai-node {
   width: 100px; height: 100px; border-radius: 28px;
-  background: linear-gradient(135deg, var(--cobalt), #0A28A0);
+  background: #fff;
   display: flex; align-items: center; justify-content: center;
-  font-size: 40px;
-  box-shadow: 0 8px 36px var(--cobalt-glow);
+  box-shadow: 0 8px 36px rgba(26,59,204,0.20), 0 2px 8px rgba(0,0,0,0.06);
+  border: 2px solid rgba(26,59,204,0.14);
+  padding: 14px; overflow: hidden;
 }
-.eco-ai-node span { filter: brightness(0) invert(1); font-size: 40px; }
+.eco-ai-node img {
+  width: 100%; height: 100%; object-fit: contain; display: block;
+}
+
 .eco-node-label { font-size: 13px; font-weight: 600; color: var(--ink); margin-top: 4px; }
 .eco-arrow {
   display: flex; align-items: center; justify-content: center;
@@ -775,7 +827,7 @@ nav.scrolled {
 .cta-btns { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
 
 /* ═══════════════════════════════════
-   FOOTER (DESIGN UPDATED, CONTENT PRESERVED)
+   FOOTER
 ═══════════════════════════════════ */
 footer {
   background: rgba(255,255,255,0.50);
@@ -872,10 +924,15 @@ footer {
 <div id="login-page">
   <div class="login-card">
     <button class="login-close" id="login-close" aria-label="Close">✕</button>
+
+    <!-- ✦ CHANGED: Pepper Labs logo in login/signup overlay -->
     <div class="login-logo">
-      <div class="logo-mark">🤖</div>
-      <span style="font-family:var(--sans);font-size:16px;font-weight:600;">AI Rakan Niaga</span>
+      <div class="login-logo-img-wrap">
+        <img src="https://pepperlabs.my/assets/logos/pepperlabs.png" alt="Pepper Labs">
+      </div>
+      <span class="login-logo-name">AI Rakan Niaga</span>
     </div>
+
     <div class="auth-tabs">
       <button class="auth-tab active" data-tab="login">Log In</button>
       <button class="auth-tab" data-tab="signup">Sign Up</button>
@@ -919,7 +976,10 @@ footer {
 <!-- ═══════ NAV ═══════ -->
 <nav id="nav">
   <a href="home" class="nav-logo">
-    <img src="https://pepperlabs.my/assets/logos/pepperlabs.png" style="width:28px;height:auto;object-fit:contain;" alt="MOF">
+    <!-- ✦ CHANGED: Pepper Labs logo in navbar -->
+    <div class="nav-logo-img-wrap">
+      <img src="https://pepperlabs.my/assets/logos/pepperlabs.png" alt="Pepper Labs">
+    </div>
     <span class="logo-name">AI Rakan Niaga</span>
   </a>
   <ul class="nav-links">
@@ -965,16 +1025,32 @@ footer {
   <!-- Chat preview -->
   <div class="hero-chat glass-strong">
     <div class="chat-header">
-      <div class="chat-av">🤖</div>
+      <!-- ✦ CHANGED: Pepper Labs logo in chat preview avatar -->
+      <div class="chat-av">
+        <img src="https://pepperlabs.my/assets/logos/pepperlabs.png" alt="Pepper Labs">
+      </div>
       <div>
         <div class="chat-name" data-i18n="chat-name">AI Rakan Niaga</div>
         <div class="chat-status" data-i18n="chat-status">Online · 24/7</div>
       </div>
     </div>
-    <div class="msg"><div class="msg-ico">🤖</div><div class="bubble bot" data-i18n="chat-msg1">Selamat datang! Boleh saya bantu anda hari ini? 😊</div></div>
-    <div class="msg me"><div class="msg-ico">👤</div><div class="bubble user" data-i18n="chat-msg2">Ada baju kurung size M tak? Berapa harga?</div></div>
-    <div class="msg"><div class="msg-ico">🤖</div><div class="bubble bot" data-i18n="chat-msg3">Ada! 3 warna — Biru Malam, Merah Marun, Krim. Harga <b>RM89</b>. Nak tengok gambar? 👗</div></div>
-    <div class="msg"><div class="msg-ico">🤖</div><div class="typing-bubble"><span></span><span></span><span></span></div></div>
+    <!-- ✦ CHANGED: Bot message icons use Pepper Labs logo -->
+    <div class="msg">
+      <div class="msg-ico bot-ico"><img src="https://pepperlabs.my/assets/logos/pepperlabs.png" alt=""></div>
+      <div class="bubble bot" data-i18n="chat-msg1">Selamat datang! Boleh saya bantu anda hari ini? 😊</div>
+    </div>
+    <div class="msg me">
+      <div class="msg-ico">👤</div>
+      <div class="bubble user" data-i18n="chat-msg2">Ada baju kurung size M tak? Berapa harga?</div>
+    </div>
+    <div class="msg">
+      <div class="msg-ico bot-ico"><img src="https://pepperlabs.my/assets/logos/pepperlabs.png" alt=""></div>
+      <div class="bubble bot" data-i18n="chat-msg3">Ada! 3 warna — Biru Malam, Merah Marun, Krim. Harga <b>RM89</b>. Nak tengok gambar? 👗</div>
+    </div>
+    <div class="msg">
+      <div class="msg-ico bot-ico"><img src="https://pepperlabs.my/assets/logos/pepperlabs.png" alt=""></div>
+      <div class="typing-bubble"><span></span><span></span><span></span></div>
+    </div>
   </div>
 </section>
 
@@ -1039,7 +1115,7 @@ footer {
   </div>
 </section>
 
-<!-- ═══════ RAG ARCHITECTURE (UNCHANGED FRAMEWORK) ═══════ -->
+<!-- ═══════ RAG ARCHITECTURE ═══════ -->
 <section class="sec-rag alt" id="rag-architecture">
   <div class="sec" style="position:relative;z-index:1;">
     <div class="reveal" style="text-align:center;max-width:680px;margin:0 auto 52px;">
@@ -1163,7 +1239,10 @@ footer {
       </div>
 
       <div class="eco-center">
-        <div class="eco-ai-node">🤖</div>
+        <!-- ✦ CHANGED: Pepper Labs logo in ecosystem central node -->
+        <div class="eco-ai-node">
+          <img src="https://pepperlabs.my/assets/logos/pepperlabs.png" alt="Pepper Labs — AI Rakan Niaga">
+        </div>
         <div class="eco-node-label">AI Rakan Niaga</div>
         <p style="font-size:12px;color:var(--ink3);font-weight:300;margin-top:4px;">Powered by DeepSeek-R1 + RAG</p>
         <div class="eco-arrow" style="margin-top:12px;">⇄</div>
