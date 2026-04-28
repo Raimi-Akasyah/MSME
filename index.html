@@ -104,7 +104,6 @@ nav.scrolled {
   box-shadow: 0 8px 48px rgba(26,59,204,0.12), 0 1px 0 rgba(255,255,255,0.95) inset;
 }
 
-/* ── NAVBAR LOGO: enlarged, shows full Pepper Labs logo ── */
 .nav-logo {
   display: flex; align-items: center; gap: 0;
   text-decoration: none; color: var(--ink); flex-shrink: 0;
@@ -113,12 +112,10 @@ nav.scrolled {
   height: 42px;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
-  /* no background box — logo floats naturally on the glass nav */
 }
 .nav-logo-img-wrap img {
   height: 100%; width: auto;
   object-fit: contain; display: block;
-  /* slight drop-shadow so it reads on the glass pill */
   filter: drop-shadow(0 1px 4px rgba(0,0,0,0.12));
 }
 
@@ -161,13 +158,11 @@ nav.scrolled {
 .login-close { position: absolute; top: 18px; right: 18px; width: 30px; height: 30px; border-radius: 50%; background: rgba(0,0,0,0.05); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--ink3); transition: all .2s; font-family: var(--sans); }
 .login-close:hover { background: rgba(0,0,0,0.10); color: var(--ink); }
 
-/* ── LOGIN LOGO: large, centred, prominent ── */
 .login-logo {
   display: flex; flex-direction: column; align-items: center;
   gap: 12px; margin-bottom: 28px; text-align: center;
 }
 .login-logo-img-wrap {
-  /* White pill card matching pepperlabs.my style */
   background: #fff;
   border-radius: 18px;
   padding: 14px 24px;
@@ -410,17 +405,16 @@ footer { background: rgba(255,255,255,0.50); backdrop-filter: blur(24px); -webki
   <div class="login-card">
     <button class="login-close" id="login-close" aria-label="Close">✕</button>
 
-    <!-- ENLARGED logo in login/signup — white card with full logo + tagline -->
     <div class="login-logo">
       <div class="login-logo-img-wrap">
         <img src="https://pepperlabs.my/assets/logos/pepperlabs.png" alt="Pepper Labs">
       </div>
-      <span class="login-logo-tagline">AI Rakan Niaga — Your Business Partner</span>
+      <span class="login-logo-tagline" data-i18n="login-tagline">AI Rakan Niaga — Your Business Partner</span>
     </div>
 
     <div class="auth-tabs">
-      <button class="auth-tab active" data-tab="login">Log In</button>
-      <button class="auth-tab" data-tab="signup">Sign Up</button>
+      <button class="auth-tab active" data-tab="login" data-i18n="auth-tab-login">Log In</button>
+      <button class="auth-tab" data-tab="signup" data-i18n="auth-tab-signup">Sign Up</button>
     </div>
 
     <!-- Login panel -->
@@ -429,15 +423,15 @@ footer { background: rgba(255,255,255,0.50); backdrop-filter: blur(24px); -webki
       <div class="social-btns">
         <button class="btn-social" onclick="handleSocialAuth('Google')">
           <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-          Continue with Google
+          <span data-i18n="login-google">Continue with Google</span>
         </button>
       </div>
-      <div class="or-divider">or continue with email</div>
-      <div class="field"><label>Email address</label><input type="email" id="login-email" placeholder="you@example.com" autocomplete="email"></div>
-      <div class="field"><label>Password</label><div class="pw-wrap"><input type="password" id="login-password" placeholder="Your password" autocomplete="current-password"><button class="pw-toggle" type="button" onclick="togglePw('login-password',this)">👁</button></div></div>
-      <a href="#" class="forgot">Forgot password?</a>
-      <button class="btn-auth" id="btn-login" onclick="handleLogin()">Log In →</button>
-      <p class="terms-note" style="margin-top:18px;">Don't have an account? <a href="#" onclick="switchTab('signup')">Sign up free</a></p>
+      <div class="or-divider" data-i18n="or-divider-login">or continue with email</div>
+      <div class="field"><label data-i18n="field-email">Email address</label><input type="email" id="login-email" data-i18n-placeholder="placeholder-email" placeholder="you@example.com" autocomplete="email"></div>
+      <div class="field"><label data-i18n="field-password">Password</label><div class="pw-wrap"><input type="password" id="login-password" data-i18n-placeholder="placeholder-password" placeholder="Your password" autocomplete="current-password"><button class="pw-toggle" type="button" onclick="togglePw('login-password',this)">👁</button></div></div>
+      <a href="#" class="forgot" data-i18n="forgot-password">Forgot password?</a>
+      <button class="btn-auth" id="btn-login" onclick="handleLogin()" data-i18n="btn-login">Log In →</button>
+      <p class="terms-note" style="margin-top:18px;" data-i18n="login-switch">Don't have an account? <a href="#" onclick="switchTab('signup')">Sign up free</a></p>
     </div>
 
     <!-- Signup panel -->
@@ -446,23 +440,26 @@ footer { background: rgba(255,255,255,0.50); backdrop-filter: blur(24px); -webki
       <div class="social-btns">
         <button class="btn-social" onclick="handleSocialAuth('Google')">
           <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-          Sign up with Google
+          <span data-i18n="signup-google">Sign up with Google</span>
         </button>
       </div>
-      <div class="or-divider">or sign up with email</div>
-      <div class="field"><label>Full name</label><input type="text" id="signup-name" placeholder="Your name"></div>
-      <div class="field"><label>Email address</label><input type="email" id="signup-email" placeholder="you@example.com"></div>
-      <div class="field"><label>Password</label><div class="pw-wrap"><input type="password" id="signup-password" placeholder="At least 8 characters"><button class="pw-toggle" type="button" onclick="togglePw('signup-password',this)">👁</button></div></div>
-      <div class="auth-success" id="signup-success"><div class="success-icon">🎉</div><h3>You're in!</h3><p>Check your email to verify your account.</p></div>
-      <button class="btn-auth" id="btn-signup" onclick="handleSignup()">Create Free Account →</button>
-      <p class="terms-note">By signing up you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.<br>Already have an account? <a href="#" onclick="switchTab('login')">Log in</a></p>
+      <div class="or-divider" data-i18n="or-divider-signup">or sign up with email</div>
+      <div class="field"><label data-i18n="field-name">Full name</label><input type="text" id="signup-name" data-i18n-placeholder="placeholder-name" placeholder="Your name"></div>
+      <div class="field"><label data-i18n="field-email">Email address</label><input type="email" id="signup-email" data-i18n-placeholder="placeholder-email" placeholder="you@example.com"></div>
+      <div class="field"><label data-i18n="field-password-new">Password</label><div class="pw-wrap"><input type="password" id="signup-password" data-i18n-placeholder="placeholder-password-new" placeholder="At least 8 characters"><button class="pw-toggle" type="button" onclick="togglePw('signup-password',this)">👁</button></div></div>
+      <div class="auth-success" id="signup-success">
+        <div class="success-icon">🎉</div>
+        <h3 data-i18n="signup-success-title">You're in!</h3>
+        <p data-i18n="signup-success-msg">Check your email to verify your account.</p>
+      </div>
+      <button class="btn-auth" id="btn-signup" onclick="handleSignup()" data-i18n="btn-signup">Create Free Account →</button>
+      <p class="terms-note" data-i18n="signup-terms">By signing up you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.<br>Already have an account? <a href="#" onclick="switchTab('login')">Log in</a></p>
     </div>
   </div>
 </div>
 
 <!-- ═══════ NAV ═══════ -->
 <nav id="nav">
-  <!-- ENLARGED: logo floats at natural height, no boxy container -->
   <a href="home" class="nav-logo">
     <div class="nav-logo-img-wrap">
       <img src="https://pepperlabs.my/assets/logos/pepperlabs.png" alt="Pepper Labs">
@@ -470,9 +467,9 @@ footer { background: rgba(255,255,255,0.50); backdrop-filter: blur(24px); -webki
   </a>
   <ul class="nav-links">
     <li><a href="#home" data-i18n="nav-home">Home</a></li>
-    <li><a href="#ai_persona">AI Persona</a></li>
+    <li><a href="#ai_persona" data-i18n="nav-persona">AI Persona</a></li>
     <li><a href="#rag-architecture" data-i18n="nav-rag-architecture">Workflow</a></li>
-    <li><a href="#ecosystem">Ecosystem</a></li>
+    <li><a href="#ecosystem" data-i18n="nav-ecosystem">Ecosystem</a></li>
   </ul>
   <div class="nav-r">
     <div class="lang-sw">
@@ -539,16 +536,18 @@ footer { background: rgba(255,255,255,0.50); backdrop-filter: blur(24px); -webki
 <!-- ═══════ TRUST BAR ═══════ -->
 <div class="trust-bar">
   <div class="trust-track">
-    <div class="trust-item"><span class="t-num">97%</span><span class="t-label">of all businesses are MSMEs</span></div>
-    <div class="trust-item"><span class="t-num">+15–25%</span><span class="t-label">Sales Conversion Uplift</span></div>
-    <div class="trust-item"><span class="t-num">2–3×</span><span class="t-label">Faster Customer Response</span></div>
-    <div class="trust-item"><span class="t-num">−30%</span><span class="t-label">Reduction in Admin Cost</span></div>
+    <!-- Set A -->
+    <div class="trust-item"><span class="t-num">97%</span><span class="t-label" data-i18n="trust-1">of all businesses are MSMEs</span></div>
+    <div class="trust-item"><span class="t-num">+15–25%</span><span class="t-label" data-i18n="trust-2">Sales Conversion Uplift</span></div>
+    <div class="trust-item"><span class="t-num">2–3×</span><span class="t-label" data-i18n="trust-3">Faster Customer Response</span></div>
+    <div class="trust-item"><span class="t-num">−30%</span><span class="t-label" data-i18n="trust-admin">Reduction in Admin Cost</span></div>
     <div class="trust-item"><span class="t-num">24/7</span><span class="t-label" data-i18n="trust-4">Never misses a customer</span></div>
     <div class="trust-item"><span class="t-num">3 min</span><span class="t-label" data-i18n="trust-5">To set up, no coding needed</span></div>
-    <div class="trust-item"><span class="t-num">97%</span><span class="t-label">of all businesses are MSMEs</span></div>
-    <div class="trust-item"><span class="t-num">+15–25%</span><span class="t-label">Sales Conversion Uplift</span></div>
-    <div class="trust-item"><span class="t-num">2–3×</span><span class="t-label">Faster Customer Response</span></div>
-    <div class="trust-item"><span class="t-num">−30%</span><span class="t-label">Reduction in Admin Cost</span></div>
+    <!-- Set B (duplicate for seamless marquee) -->
+    <div class="trust-item"><span class="t-num">97%</span><span class="t-label" data-i18n="trust-1">of all businesses are MSMEs</span></div>
+    <div class="trust-item"><span class="t-num">+15–25%</span><span class="t-label" data-i18n="trust-2">Sales Conversion Uplift</span></div>
+    <div class="trust-item"><span class="t-num">2–3×</span><span class="t-label" data-i18n="trust-3">Faster Customer Response</span></div>
+    <div class="trust-item"><span class="t-num">−30%</span><span class="t-label" data-i18n="trust-admin">Reduction in Admin Cost</span></div>
     <div class="trust-item"><span class="t-num">24/7</span><span class="t-label" data-i18n="trust-4">Never misses a customer</span></div>
     <div class="trust-item"><span class="t-num">3 min</span><span class="t-label" data-i18n="trust-5">To set up, no coding needed</span></div>
   </div>
@@ -558,34 +557,38 @@ footer { background: rgba(255,255,255,0.50); backdrop-filter: blur(24px); -webki
 <section>
   <div class="sec" id="ai_persona">
     <div class="reveal" style="text-align:center;max-width:580px;margin:0 auto 52px;">
-      <span class="sec-eyebrow">AI Persona</span>
-      <h2 class="sec-h2">Four AI partners,<br><em>one platform</em></h2>
-      <p class="sec-body" style="margin:0 auto;">Each AI persona is purpose-built for a specific business function — no training required, just chat.</p>
+      <span class="sec-eyebrow" data-i18n="persona-eyebrow">AI Persona</span>
+      <h2 class="sec-h2" data-i18n="persona-h2">Four AI partners,<br><em>one platform</em></h2>
+      <p class="sec-body" style="margin:0 auto;" data-i18n="persona-body">Each AI persona is purpose-built for a specific business function — no training required, just chat.</p>
     </div>
     <div class="persona-grid">
+      <!-- Sales -->
       <div class="persona-card glass hover-float reveal">
         <div class="persona-icon-wrap" style="background:var(--cobalt-light);">🚀</div>
-        <div class="tag" style="background:var(--cobalt-light);color:var(--cobalt);">Sales</div>
-        <h3>Rakan Jualan</h3>
-        <p>Answers product questions, handles orders, sends follow-ups, and converts leads 24/7 — even at 2 AM.</p>
+        <div class="tag" style="background:var(--cobalt-light);color:var(--cobalt);" data-i18n="persona1-tag">Sales</div>
+        <h3 data-i18n="persona1-name">Rakan Jualan</h3>
+        <p data-i18n="persona1-desc">Answers product questions, handles orders, sends follow-ups, and converts leads 24/7 — even at 2 AM.</p>
       </div>
+      <!-- Operations -->
       <div class="persona-card glass hover-float reveal reveal-d1">
         <div class="persona-icon-wrap" style="background:rgba(255,159,10,0.12);">⚙️</div>
-        <div class="tag" style="background:rgba(255,159,10,0.12);color:#A85A00;">Operations</div>
-        <h3>Rakan Operasi</h3>
-        <p>Tracks inventory, manages bookings, cost optimisation, and automates routine operational tasks.</p>
+        <div class="tag" style="background:rgba(255,159,10,0.12);color:#A85A00;" data-i18n="persona2-tag">Operations</div>
+        <h3 data-i18n="persona2-name">Rakan Operasi</h3>
+        <p data-i18n="persona2-desc">Tracks inventory, manages bookings, cost optimisation, and automates routine operational tasks.</p>
       </div>
+      <!-- Finance -->
       <div class="persona-card glass hover-float reveal reveal-d2">
         <div class="persona-icon-wrap" style="background:var(--jade-light);">💰</div>
-        <div class="tag" style="background:var(--jade-light);color:var(--jade);">Finance</div>
-        <h3>Rakan Kewangan</h3>
-        <p>Generates financial summaries, tracks revenue, and provides plain-language business performance insights.</p>
+        <div class="tag" style="background:var(--jade-light);color:var(--jade);" data-i18n="persona3-tag">Finance</div>
+        <h3 data-i18n="persona3-name">Rakan Kewangan</h3>
+        <p data-i18n="persona3-desc">Generates financial summaries, tracks revenue, and provides plain-language business performance insights.</p>
       </div>
+      <!-- Compliance -->
       <div class="persona-card glass hover-float reveal reveal-d3">
         <div class="persona-icon-wrap" style="background:rgba(150,80,200,0.10);">🛡️</div>
-        <div class="tag" style="background:rgba(150,80,200,0.10);color:#6B21A8;">Compliance</div>
-        <h3>Rakan Pematuhan</h3>
-        <p>Navigates SST, e-Invoicing (LHDN), and SSM renewals. Keeps your business legally compliant without the confusion.</p>
+        <div class="tag" style="background:rgba(150,80,200,0.10);color:#6B21A8;" data-i18n="persona4-tag">Compliance</div>
+        <h3 data-i18n="persona4-name">Rakan Pematuhan</h3>
+        <p data-i18n="persona4-desc">Navigates SST, e-Invoicing (LHDN), and SSM renewals. Keeps your business legally compliant without the confusion.</p>
       </div>
     </div>
   </div>
@@ -595,61 +598,82 @@ footer { background: rgba(255,255,255,0.50); backdrop-filter: blur(24px); -webki
 <section class="sec-rag alt" id="rag-architecture">
   <div class="sec" style="position:relative;z-index:1;">
     <div class="reveal" style="text-align:center;max-width:680px;margin:0 auto 52px;">
-      <span class="sec-eyebrow">Technical Architecture</span>
-      <h2 class="sec-h2">Your 24/7 Business Assistant,<br><em>Decoded</em></h2>
-      <p class="sec-body" style="margin:0 auto;">A look under the hood. Our Advanced Insight Engine uses the RAG pipeline, powered by DeepSeek-R1, to convert your business data into grounded, intelligent actions.</p>
+      <span class="sec-eyebrow" data-i18n="arch-eyebrow">Technical Architecture</span>
+      <h2 class="sec-h2" data-i18n="arch-h2">Your 24/7 Business Assistant,<br><em>Decoded</em></h2>
+      <p class="sec-body" style="margin:0 auto;" data-i18n="arch-body">A look under the hood. Our Advanced Insight Engine uses the RAG pipeline, powered by DeepSeek-R1, to convert your business data into grounded, intelligent actions.</p>
     </div>
     <div class="arch-tabs reveal">
-      <button class="arch-tab active" data-arch="0" onclick="switchArch(0)"><span class="arch-tab-num">1</span>CX Architecture</button>
-      <button class="arch-tab" data-arch="1" onclick="switchArch(1)"><span class="arch-tab-num">2</span>RAG Pipeline</button>
-      <button class="arch-tab" data-arch="2" onclick="switchArch(2)"><span class="arch-tab-num">3</span>LLMOps Infrastructure</button>
+      <button class="arch-tab active" data-arch="0" onclick="switchArch(0)"><span class="arch-tab-num">1</span><span data-i18n="arch-tab1">CX Architecture</span></button>
+      <button class="arch-tab" data-arch="1" onclick="switchArch(1)"><span class="arch-tab-num">2</span><span data-i18n="arch-tab2">RAG Pipeline</span></button>
+      <button class="arch-tab" data-arch="2" onclick="switchArch(2)"><span class="arch-tab-num">3</span><span data-i18n="arch-tab3">LLMOps Infrastructure</span></button>
     </div>
     <div class="arch-panels reveal">
+      <!-- Panel 0: CX -->
       <div class="arch-panel active" id="arch-panel-0">
         <div class="arch-card">
           <div class="arch-card-header">
             <div class="arch-card-meta">
-              <div><div class="arch-card-title">Customer Experience Architecture</div><div class="arch-card-subtitle">End-to-end conversation flow & channel integrations</div></div>
-              <span class="arch-card-badge blue"><span class="arch-card-badge-dot badge-dot-blue"></span>Live</span>
+              <div>
+                <div class="arch-card-title" data-i18n="arch-p0-title">Customer Experience Architecture</div>
+                <div class="arch-card-subtitle" data-i18n="arch-p0-subtitle">End-to-end conversation flow &amp; channel integrations</div>
+              </div>
+              <span class="arch-card-badge blue"><span class="arch-card-badge-dot badge-dot-blue"></span><span data-i18n="arch-badge-live">Live</span></span>
             </div>
             <div class="arch-win-dots"><span class="arch-win-dot wd-r"></span><span class="arch-win-dot wd-y"></span><span class="arch-win-dot wd-g"></span></div>
           </div>
           <div class="arch-card-img"><img src="CX Architecture.png" alt="CX Architecture" loading="lazy"></div>
           <div class="arch-card-caption">
             <div class="arch-cap-icon cap-icon-blue">🔗</div>
-            <div class="arch-cap-body"><div class="arch-cap-label">Customer Experience Layer</div><div class="arch-cap-desc">Maps the full journey from customer touchpoints (WhatsApp, Telegram, Web) through the AI orchestration layer to business outcomes — orders, bookings, and CRM updates.</div></div>
+            <div class="arch-cap-body">
+              <div class="arch-cap-label" data-i18n="arch-p0-cap-label">Customer Experience Layer</div>
+              <div class="arch-cap-desc" data-i18n="arch-p0-cap-desc">Maps the full journey from customer touchpoints (WhatsApp, Telegram, Web) through the AI orchestration layer to business outcomes — orders, bookings, and CRM updates.</div>
+            </div>
           </div>
         </div>
       </div>
+      <!-- Panel 1: RAG -->
       <div class="arch-panel" id="arch-panel-1">
         <div class="arch-card">
           <div class="arch-card-header">
             <div class="arch-card-meta">
-              <div><div class="arch-card-title">Retrieval-Augmented Generation Pipeline</div><div class="arch-card-subtitle">Document ingestion → embedding → retrieval → generation</div></div>
-              <span class="arch-card-badge green"><span class="arch-card-badge-dot badge-dot-green"></span>DeepSeek-R1</span>
+              <div>
+                <div class="arch-card-title" data-i18n="arch-p1-title">Retrieval-Augmented Generation Pipeline</div>
+                <div class="arch-card-subtitle" data-i18n="arch-p1-subtitle">Document ingestion → embedding → retrieval → generation</div>
+              </div>
+              <span class="arch-card-badge green"><span class="arch-card-badge-dot badge-dot-green"></span><span data-i18n="arch-badge-deepseek">DeepSeek-R1</span></span>
             </div>
             <div class="arch-win-dots"><span class="arch-win-dot wd-r"></span><span class="arch-win-dot wd-y"></span><span class="arch-win-dot wd-g"></span></div>
           </div>
           <div class="arch-card-img"><img src="Technical RAG.png" alt="Technical RAG Pipeline" loading="lazy"></div>
           <div class="arch-card-caption">
             <div class="arch-cap-icon cap-icon-green">🧠</div>
-            <div class="arch-cap-body"><div class="arch-cap-label">RAG Engine — Powered by DeepSeek-R1</div><div class="arch-cap-desc">Your uploaded product catalogues and FAQs are chunked, embedded, and stored in a vector database. At runtime, semantically relevant chunks are retrieved and injected into the LLM context for grounded, accurate responses.</div></div>
+            <div class="arch-cap-body">
+              <div class="arch-cap-label" data-i18n="arch-p1-cap-label">RAG Engine — Powered by DeepSeek-R1</div>
+              <div class="arch-cap-desc" data-i18n="arch-p1-cap-desc">Your uploaded product catalogues and FAQs are chunked, embedded, and stored in a vector database. At runtime, semantically relevant chunks are retrieved and injected into the LLM context for grounded, accurate responses.</div>
+            </div>
           </div>
         </div>
       </div>
+      <!-- Panel 2: LLMOps -->
       <div class="arch-panel" id="arch-panel-2">
         <div class="arch-card">
           <div class="arch-card-header">
             <div class="arch-card-meta">
-              <div><div class="arch-card-title">LLMOps Infrastructure</div><div class="arch-card-subtitle">Model serving, monitoring, evaluation & feedback loops</div></div>
-              <span class="arch-card-badge amber"><span class="arch-card-badge-dot badge-dot-amber"></span>Production</span>
+              <div>
+                <div class="arch-card-title" data-i18n="arch-p2-title">LLMOps Infrastructure</div>
+                <div class="arch-card-subtitle" data-i18n="arch-p2-subtitle">Model serving, monitoring, evaluation &amp; feedback loops</div>
+              </div>
+              <span class="arch-card-badge amber"><span class="arch-card-badge-dot badge-dot-amber"></span><span data-i18n="arch-badge-prod">Production</span></span>
             </div>
             <div class="arch-win-dots"><span class="arch-win-dot wd-r"></span><span class="arch-win-dot wd-y"></span><span class="arch-win-dot wd-g"></span></div>
           </div>
           <div class="arch-card-img"><img src="Technical LLMOps.png" alt="LLMOps Infrastructure" loading="lazy"></div>
           <div class="arch-card-caption">
             <div class="arch-cap-icon cap-icon-amber">⚙️</div>
-            <div class="arch-cap-body"><div class="arch-cap-label">Production LLMOps Stack</div><div class="arch-cap-desc">Covers the full operational lifecycle — model versioning, A/B evaluation, latency monitoring, guardrails, and continuous improvement loops that keep your AI accurate and on-brand over time.</div></div>
+            <div class="arch-cap-body">
+              <div class="arch-cap-label" data-i18n="arch-p2-cap-label">Production LLMOps Stack</div>
+              <div class="arch-cap-desc" data-i18n="arch-p2-cap-desc">Covers the full operational lifecycle — model versioning, A/B evaluation, latency monitoring, guardrails, and continuous improvement loops that keep your AI accurate and on-brand over time.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -666,33 +690,42 @@ footer { background: rgba(255,255,255,0.50); backdrop-filter: blur(24px); -webki
 <section id="ecosystem">
   <div class="sec">
     <div class="reveal" style="text-align:center;max-width:580px;margin:0 auto 52px;">
-      <span class="sec-eyebrow">Ecosystem Integration</span>
-      <h2 class="sec-h2">Connected to every<br><em>critical system</em></h2>
-      <p class="sec-body" style="margin:0 auto;">AI Rakan Niaga operates via WhatsApp — the app every Malaysian already uses — connected to the full regulatory and commerce ecosystem.</p>
+      <span class="sec-eyebrow" data-i18n="eco-eyebrow">Ecosystem Integration</span>
+      <h2 class="sec-h2" data-i18n="eco-h2">Connected to every<br><em>critical system</em></h2>
+      <p class="sec-body" style="margin:0 auto;" data-i18n="eco-body">AI Rakan Niaga operates via WhatsApp — the app every Malaysian already uses — connected to the full regulatory and commerce ecosystem.</p>
     </div>
     <div class="eco-grid reveal">
       <div class="eco-channels">
         <div class="eco-int-item glass-sm hover-float">
           <div class="eco-int-icon">🌐</div>
-          <div><div class="eco-int-name">Web Widget</div><div class="eco-int-desc">Embed on any website</div></div>
+          <div>
+            <div class="eco-int-name" data-i18n="eco-web-name">Web Widget</div>
+            <div class="eco-int-desc" data-i18n="eco-web-desc">Embed on any website</div>
+          </div>
         </div>
       </div>
       <div class="eco-center">
         <div class="eco-ai-node">
           <img src="https://pepperlabs.my/assets/logos/pepperlabs.png" alt="Pepper Labs — AI Rakan Niaga">
         </div>
-        <div class="eco-node-label">AI Rakan Niaga</div>
-        <p style="font-size:12px;color:var(--ink3);font-weight:300;margin-top:4px;">Powered by DeepSeek-R1 + RAG</p>
+        <div class="eco-node-label" data-i18n="eco-node-label">AI Rakan Niaga</div>
+        <p style="font-size:12px;color:var(--ink3);font-weight:300;margin-top:4px;" data-i18n="eco-node-powered">Powered by DeepSeek-R1 + RAG</p>
         <div class="eco-arrow" style="margin-top:12px;">⇄</div>
       </div>
       <div class="eco-integrations">
         <div class="eco-int-item glass-sm hover-float">
           <div class="eco-int-icon">🏛️</div>
-          <div><div class="eco-int-name">SSM</div><div class="eco-int-desc">Companies Commission of Malaysia</div></div>
+          <div>
+            <div class="eco-int-name" data-i18n="eco-ssm-name">SSM</div>
+            <div class="eco-int-desc" data-i18n="eco-ssm-desc">Companies Commission of Malaysia</div>
+          </div>
         </div>
         <div class="eco-int-item glass-sm hover-float">
           <div class="eco-int-icon">📋</div>
-          <div><div class="eco-int-name">LHDN</div><div class="eco-int-desc">e-Invoicing & tax compliance</div></div>
+          <div>
+            <div class="eco-int-name" data-i18n="eco-lhdn-name">LHDN</div>
+            <div class="eco-int-desc" data-i18n="eco-lhdn-desc">e-Invoicing &amp; tax compliance</div>
+          </div>
         </div>
       </div>
     </div>
@@ -738,8 +771,8 @@ footer { background: rgba(255,255,255,0.50); backdrop-filter: blur(24px); -webki
     <div class="ft-bottom">
       <p data-i18n="footer-copy">© 2026 Pepper Labs. All rights reserved.</p>
       <div class="ft-badges">
-        <span class="ft-badge">Made in Malaysia 🇲🇾</span>
-        <span class="ft-badge">Powered by DeepSeek-R1</span>
+        <span class="ft-badge" data-i18n="footer-badge1">Made in Malaysia 🇲🇾</span>
+        <span class="ft-badge" data-i18n="footer-badge2">Powered by DeepSeek-R1</span>
       </div>
     </div>
   </div>
@@ -796,30 +829,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function handleLogin() {
     clearError('login-error');
+    const lang = window._currentLang || 'en';
+    const t = window.translations[lang];
     const email = document.getElementById('login-email').value.trim();
     const pw = document.getElementById('login-password').value;
-    if (!email) return showError('login-error','Please enter your email address.');
-    if (!isEmail(email)) return showError('login-error','That email doesn\'t look right.');
-    if (!pw) return showError('login-error','Please enter your password.');
-    if (pw.length < 6) return showError('login-error','Password must be at least 6 characters.');
+    if (!email) return showError('login-error', t['err-email-required']);
+    if (!isEmail(email)) return showError('login-error', t['err-email-invalid']);
+    if (!pw) return showError('login-error', t['err-password-required']);
+    if (pw.length < 6) return showError('login-error', t['err-password-short']);
     const btn = document.getElementById('btn-login');
-    btn.textContent = 'Logging in…'; btn.classList.add('loading');
-    setTimeout(() => { btn.textContent = 'Log In →'; btn.classList.remove('loading'); showError('login-error','No account found with that email. Try signing up instead.'); }, 1400);
+    btn.textContent = t['btn-login-loading']; btn.classList.add('loading');
+    setTimeout(() => { btn.textContent = t['btn-login']; btn.classList.remove('loading'); showError('login-error', t['err-no-account']); }, 1400);
   }
   window.handleLogin = handleLogin;
 
   function handleSignup() {
     clearError('signup-error');
+    const lang = window._currentLang || 'en';
+    const t = window.translations[lang];
     const name = document.getElementById('signup-name').value.trim();
     const email = document.getElementById('signup-email').value.trim();
     const pw = document.getElementById('signup-password').value;
-    if (!name) return showError('signup-error','Please enter your name.');
-    if (!email) return showError('signup-error','Please enter your email address.');
-    if (!isEmail(email)) return showError('signup-error','That email doesn\'t look right.');
-    if (!pw) return showError('signup-error','Please choose a password.');
-    if (pw.length < 8) return showError('signup-error','Password must be at least 8 characters long.');
+    if (!name) return showError('signup-error', t['err-name-required']);
+    if (!email) return showError('signup-error', t['err-email-required']);
+    if (!isEmail(email)) return showError('signup-error', t['err-email-invalid']);
+    if (!pw) return showError('signup-error', t['err-password-required']);
+    if (pw.length < 8) return showError('signup-error', t['err-password-long']);
     const btn = document.getElementById('btn-signup');
-    btn.textContent = 'Creating account…'; btn.classList.add('loading');
+    btn.textContent = t['btn-signup-loading']; btn.classList.add('loading');
     setTimeout(() => { btn.style.display='none'; document.getElementById('signup-success').classList.add('show'); }, 1500);
   }
   window.handleSignup = handleSignup;
@@ -835,83 +872,462 @@ function switchArch(idx) {
 }
 window.switchArch = switchArch;
 
-const translations = {
+// ═══════════════════════════════════════════════
+//  COMPLETE TRANSLATION TABLE — EN / BM / CH
+// ═══════════════════════════════════════════════
+window.translations = {
   en: {
-    "nav-home":"Home","nav-rag-architecture":"Workflow","nav-login":"Log In","nav-try":"Try Free →",
-    "hero-badge":"Built for Malaysian MSMEs · No training required",
-    "hero-title":"Your business,<br>always <em>open</em>",
-    "hero-sub":"97% of Malaysian businesses are MSMEs — busy surviving, not scaling. AI Rakan Niaga changes that. Sell more, run operations, and stay compliant. Just chat.",
-    "hero-btn1":"Start Free →",
-    "chat-name":"AI Rakan Niaga","chat-status":"Online · 24/7",
-    "chat-msg1":"Selamat datang! Boleh saya bantu anda hari ini? 😊",
-    "chat-msg2":"Ada baju kurung size M tak? Berapa harga?",
-    "chat-msg3":"Ada! 3 warna — Biru Malam, Merah Marun, Krim. Harga <b>RM89</b>. Nak tengok gambar? 👗",
-    "trust-4":"Never misses a customer","trust-5":"To set up, no coding needed",
-    "cta-title":"Ready to stop<br><em>missing customers?</em>",
-    "cta-sub":"Join 5,200+ Malaysian businesses. Free for 14 days — no card needed.",
-    "cta-btn1":"Start Now →",
-    "footer-addr":"A-3-7, Viva Residency (Commercial), Off Jalan Ipoh, 51200, Kuala Lumpur.",
-    "footer-company":"Company","footer-who":"Who We Are","footer-expertise":"Our Expertise",
-    "footer-microsoft":"Microsoft","footer-campaign":"AI Campaign","footer-dapur":"Dapur Digital","footer-impact":"Our Impact",
-    "footer-support":"Support","footer-faq":"FAQ","footer-work":"Work With Us",
-    "footer-copy":"© 2026 Pepper Labs. All rights reserved."
+    /* ── NAV ── */
+    "nav-home": "Home",
+    "nav-persona": "AI Persona",
+    "nav-rag-architecture": "Workflow",
+    "nav-ecosystem": "Ecosystem",
+    "nav-login": "Log In",
+    "nav-try": "Try Free →",
+
+    /* ── LOGIN / SIGNUP MODAL ── */
+    "login-tagline": "AI Rakan Niaga — Your Business Partner",
+    "auth-tab-login": "Log In",
+    "auth-tab-signup": "Sign Up",
+    "login-google": "Continue with Google",
+    "signup-google": "Sign up with Google",
+    "or-divider-login": "or continue with email",
+    "or-divider-signup": "or sign up with email",
+    "field-name": "Full name",
+    "field-email": "Email address",
+    "field-password": "Password",
+    "field-password-new": "Password",
+    "placeholder-name": "Your name",
+    "placeholder-email": "you@example.com",
+    "placeholder-password": "Your password",
+    "placeholder-password-new": "At least 8 characters",
+    "forgot-password": "Forgot password?",
+    "btn-login": "Log In →",
+    "btn-login-loading": "Logging in…",
+    "btn-signup": "Create Free Account →",
+    "btn-signup-loading": "Creating account…",
+    "signup-success-title": "You're in!",
+    "signup-success-msg": "Check your email to verify your account.",
+    "login-switch": "Don't have an account? <a href=\"#\" onclick=\"switchTab('signup')\">Sign up free</a>",
+    "signup-terms": "By signing up you agree to our <a href=\"#\">Terms</a> and <a href=\"#\">Privacy Policy</a>.<br>Already have an account? <a href=\"#\" onclick=\"switchTab('login')\">Log in</a>",
+
+    /* ── FORM VALIDATION ERRORS ── */
+    "err-name-required": "Please enter your name.",
+    "err-email-required": "Please enter your email address.",
+    "err-email-invalid": "That email doesn't look right.",
+    "err-password-required": "Please enter your password.",
+    "err-password-short": "Password must be at least 6 characters.",
+    "err-password-long": "Password must be at least 8 characters long.",
+    "err-no-account": "No account found with that email. Try signing up instead.",
+
+    /* ── HERO ── */
+    "hero-badge": "Built for Malaysian MSMEs · No training required",
+    "hero-title": "Your business,<br>always <em>open</em>",
+    "hero-sub": "97% of Malaysian businesses are MSMEs — busy surviving, not scaling. AI Rakan Niaga changes that. Sell more, run operations, and stay compliant. Just chat.",
+    "hero-btn1": "Start Free →",
+
+    /* ── CHAT WIDGET ── */
+    "chat-name": "AI Rakan Niaga",
+    "chat-status": "Online · 24/7",
+    "chat-msg1": "Selamat datang! Boleh saya bantu anda hari ini? 😊",
+    "chat-msg2": "Ada baju kurung size M tak? Berapa harga?",
+    "chat-msg3": "Ada! 3 warna — Biru Malam, Merah Marun, Krim. Harga <b>RM89</b>. Nak tengok gambar? 👗",
+
+    /* ── TRUST BAR ── */
+    "trust-1": "of all businesses are MSMEs",
+    "trust-2": "Sales Conversion Uplift",
+    "trust-3": "Faster Customer Response",
+    "trust-admin": "Reduction in Admin Cost",
+    "trust-4": "Never misses a customer",
+    "trust-5": "To set up, no coding needed",
+
+    /* ── AI PERSONAS SECTION ── */
+    "persona-eyebrow": "AI Persona",
+    "persona-h2": "Four AI partners,<br><em>one platform</em>",
+    "persona-body": "Each AI persona is purpose-built for a specific business function — no training required, just chat.",
+    "persona1-tag": "Sales",
+    "persona1-name": "Rakan Jualan",
+    "persona1-desc": "Answers product questions, handles orders, sends follow-ups, and converts leads 24/7 — even at 2 AM.",
+    "persona2-tag": "Operations",
+    "persona2-name": "Rakan Operasi",
+    "persona2-desc": "Tracks inventory, manages bookings, cost optimisation, and automates routine operational tasks.",
+    "persona3-tag": "Finance",
+    "persona3-name": "Rakan Kewangan",
+    "persona3-desc": "Generates financial summaries, tracks revenue, and provides plain-language business performance insights.",
+    "persona4-tag": "Compliance",
+    "persona4-name": "Rakan Pematuhan",
+    "persona4-desc": "Navigates SST, e-Invoicing (LHDN), and SSM renewals. Keeps your business legally compliant without the confusion.",
+
+    /* ── ARCHITECTURE SECTION ── */
+    "arch-eyebrow": "Technical Architecture",
+    "arch-h2": "Your 24/7 Business Assistant,<br><em>Decoded</em>",
+    "arch-body": "A look under the hood. Our Advanced Insight Engine uses the RAG pipeline, powered by DeepSeek-R1, to convert your business data into grounded, intelligent actions.",
+    "arch-tab1": "CX Architecture",
+    "arch-tab2": "RAG Pipeline",
+    "arch-tab3": "LLMOps Infrastructure",
+    "arch-badge-live": "Live",
+    "arch-badge-deepseek": "DeepSeek-R1",
+    "arch-badge-prod": "Production",
+    "arch-p0-title": "Customer Experience Architecture",
+    "arch-p0-subtitle": "End-to-end conversation flow & channel integrations",
+    "arch-p0-cap-label": "Customer Experience Layer",
+    "arch-p0-cap-desc": "Maps the full journey from customer touchpoints (WhatsApp, Telegram, Web) through the AI orchestration layer to business outcomes — orders, bookings, and CRM updates.",
+    "arch-p1-title": "Retrieval-Augmented Generation Pipeline",
+    "arch-p1-subtitle": "Document ingestion → embedding → retrieval → generation",
+    "arch-p1-cap-label": "RAG Engine — Powered by DeepSeek-R1",
+    "arch-p1-cap-desc": "Your uploaded product catalogues and FAQs are chunked, embedded, and stored in a vector database. At runtime, semantically relevant chunks are retrieved and injected into the LLM context for grounded, accurate responses.",
+    "arch-p2-title": "LLMOps Infrastructure",
+    "arch-p2-subtitle": "Model serving, monitoring, evaluation & feedback loops",
+    "arch-p2-cap-label": "Production LLMOps Stack",
+    "arch-p2-cap-desc": "Covers the full operational lifecycle — model versioning, A/B evaluation, latency monitoring, guardrails, and continuous improvement loops that keep your AI accurate and on-brand over time.",
+
+    /* ── ECOSYSTEM SECTION ── */
+    "eco-eyebrow": "Ecosystem Integration",
+    "eco-h2": "Connected to every<br><em>critical system</em>",
+    "eco-body": "AI Rakan Niaga operates via WhatsApp — the app every Malaysian already uses — connected to the full regulatory and commerce ecosystem.",
+    "eco-web-name": "Web Widget",
+    "eco-web-desc": "Embed on any website",
+    "eco-node-label": "AI Rakan Niaga",
+    "eco-node-powered": "Powered by DeepSeek-R1 + RAG",
+    "eco-ssm-name": "SSM",
+    "eco-ssm-desc": "Companies Commission of Malaysia",
+    "eco-lhdn-name": "LHDN",
+    "eco-lhdn-desc": "e-Invoicing & tax compliance",
+
+    /* ── CTA ── */
+    "cta-title": "Ready to stop<br><em>missing customers?</em>",
+    "cta-sub": "Join 5,200+ Malaysian businesses. Free for 14 days — no card needed.",
+    "cta-btn1": "Start Now →",
+
+    /* ── FOOTER ── */
+    "footer-addr": "A-3-7, Viva Residency (Commercial), Off Jalan Ipoh, 51200, Kuala Lumpur.",
+    "footer-company": "Company",
+    "footer-who": "Who We Are",
+    "footer-expertise": "Our Expertise",
+    "footer-microsoft": "Microsoft",
+    "footer-campaign": "AI Campaign",
+    "footer-dapur": "Dapur Digital",
+    "footer-impact": "Our Impact",
+    "footer-support": "Support",
+    "footer-faq": "FAQ",
+    "footer-work": "Work With Us",
+    "footer-copy": "© 2026 Pepper Labs. All rights reserved.",
+    "footer-badge1": "Made in Malaysia 🇲🇾",
+    "footer-badge2": "Powered by DeepSeek-R1"
   },
+
   bm: {
-    "nav-home":"Utama","nav-rag-architecture":"Aliran Kerja","nav-login":"Log Masuk","nav-try":"Percubaan Percuma →",
-    "hero-badge":"Dibina untuk MSME Malaysia · Tiada latihan diperlukan",
-    "hero-title":"Perniagaan anda,<br>sentiasa <em>buka</em>",
-    "hero-sub":"97% perniagaan Malaysia adalah MSME — sibuk bertahan, bukan berkembang. AI Rakan Niaga mengubah itu. Jual lebih banyak, urus operasi, dan kekal patuh. Cuma chat.",
-    "hero-btn1":"Mulai Percuma →",
-    "chat-name":"AI Rakan Niaga","chat-status":"Dalam talian · 24/7",
-    "chat-msg1":"Selamat datang! Boleh saya bantu anda hari ini? 😊",
-    "chat-msg2":"Ada baju kurung size M tak? Berapa harga?",
-    "chat-msg3":"Ada! 3 warna — Biru Malam, Merah Marun, Krim. Harga <b>RM89</b>. Nak tengok gambar? 👗",
-    "trust-4":"Tidak pernah kehilangan pelanggan","trust-5":"Untuk menyiapkan, tanpa kod",
-    "cta-title":"Bersedia untuk berhenti<br><em>kehilangan pelanggan?</em>",
-    "cta-sub":"Sertai 5,200+ perniagaan Malaysia. Percuma 14 hari — tiada kad diperlukan.",
-    "cta-btn1":"Mulai Sekarang →",
-    "footer-addr":"A-3-7, Viva Residency (Commercial), Off Jalan Ipoh, 51200, Kuala Lumpur.",
-    "footer-company":"Syarikat","footer-who":"Siapa Kami","footer-expertise":"Kepakaran Kami",
-    "footer-microsoft":"Microsoft","footer-campaign":"Kempen AI","footer-dapur":"Dapur Digital","footer-impact":"Impak Kami",
-    "footer-support":"Sokongan","footer-faq":"Soalan Lazim","footer-work":"Bekerja Bersama Kami",
-    "footer-copy":"© 2026 Pepper Labs. Hak cipta terpelihara."
+    /* ── NAV ── */
+    "nav-home": "Utama",
+    "nav-persona": "AI Persona",
+    "nav-rag-architecture": "Aliran Kerja",
+    "nav-ecosystem": "Ekosistem",
+    "nav-login": "Log Masuk",
+    "nav-try": "Percubaan Percuma →",
+
+    /* ── LOGIN / SIGNUP MODAL ── */
+    "login-tagline": "AI Rakan Niaga — Rakan Perniagaan Anda",
+    "auth-tab-login": "Log Masuk",
+    "auth-tab-signup": "Daftar",
+    "login-google": "Teruskan dengan Google",
+    "signup-google": "Daftar dengan Google",
+    "or-divider-login": "atau teruskan dengan e-mel",
+    "or-divider-signup": "atau daftar dengan e-mel",
+    "field-name": "Nama penuh",
+    "field-email": "Alamat e-mel",
+    "field-password": "Kata laluan",
+    "field-password-new": "Kata laluan",
+    "placeholder-name": "Nama anda",
+    "placeholder-email": "anda@contoh.com",
+    "placeholder-password": "Kata laluan anda",
+    "placeholder-password-new": "Sekurang-kurangnya 8 aksara",
+    "forgot-password": "Lupa kata laluan?",
+    "btn-login": "Log Masuk →",
+    "btn-login-loading": "Sedang log masuk…",
+    "btn-signup": "Cipta Akaun Percuma →",
+    "btn-signup-loading": "Sedang mencipta akaun…",
+    "signup-success-title": "Berjaya!",
+    "signup-success-msg": "Semak e-mel anda untuk mengesahkan akaun.",
+    "login-switch": "Tiada akaun? <a href=\"#\" onclick=\"switchTab('signup')\">Daftar percuma</a>",
+    "signup-terms": "Dengan mendaftar, anda bersetuju dengan <a href=\"#\">Terma</a> dan <a href=\"#\">Dasar Privasi</a> kami.<br>Sudah ada akaun? <a href=\"#\" onclick=\"switchTab('login')\">Log masuk</a>",
+
+    /* ── FORM VALIDATION ERRORS ── */
+    "err-name-required": "Sila masukkan nama anda.",
+    "err-email-required": "Sila masukkan alamat e-mel anda.",
+    "err-email-invalid": "E-mel itu tidak kelihatan betul.",
+    "err-password-required": "Sila masukkan kata laluan anda.",
+    "err-password-short": "Kata laluan mestilah sekurang-kurangnya 6 aksara.",
+    "err-password-long": "Kata laluan mestilah sekurang-kurangnya 8 aksara.",
+    "err-no-account": "Tiada akaun dijumpai dengan e-mel tersebut. Cuba daftar.",
+
+    /* ── HERO ── */
+    "hero-badge": "Dibina untuk MSME Malaysia · Tiada latihan diperlukan",
+    "hero-title": "Perniagaan anda,<br>sentiasa <em>buka</em>",
+    "hero-sub": "97% perniagaan Malaysia adalah MSME — sibuk bertahan, bukan berkembang. AI Rakan Niaga mengubah itu. Jual lebih banyak, urus operasi, dan kekal patuh. Cuma chat.",
+    "hero-btn1": "Mulai Percuma →",
+
+    /* ── CHAT WIDGET ── */
+    "chat-name": "AI Rakan Niaga",
+    "chat-status": "Dalam talian · 24/7",
+    "chat-msg1": "Selamat datang! Boleh saya bantu anda hari ini? 😊",
+    "chat-msg2": "Ada baju kurung size M tak? Berapa harga?",
+    "chat-msg3": "Ada! 3 warna — Biru Malam, Merah Marun, Krim. Harga <b>RM89</b>. Nak tengok gambar? 👗",
+
+    /* ── TRUST BAR ── */
+    "trust-1": "daripada semua perniagaan adalah MSME",
+    "trust-2": "Peningkatan Penukaran Jualan",
+    "trust-3": "Respons Pelanggan Lebih Pantas",
+    "trust-admin": "Pengurangan Kos Pentadbiran",
+    "trust-4": "Tidak pernah kehilangan pelanggan",
+    "trust-5": "Untuk persediaan, tanpa pengekodan",
+
+    /* ── AI PERSONAS SECTION ── */
+    "persona-eyebrow": "AI Persona",
+    "persona-h2": "Empat rakan AI,<br><em>satu platform</em>",
+    "persona-body": "Setiap persona AI dibina khas untuk fungsi perniagaan tertentu — tiada latihan diperlukan, cuma chat.",
+    "persona1-tag": "Jualan",
+    "persona1-name": "Rakan Jualan",
+    "persona1-desc": "Menjawab soalan produk, mengendalikan pesanan, menghantar susulan, dan menukar bakal pelanggan 24/7 — walaupun jam 2 pagi.",
+    "persona2-tag": "Operasi",
+    "persona2-name": "Rakan Operasi",
+    "persona2-desc": "Jejaki inventori, urus tempahan, optimumkan kos, dan automatikkan tugas operasi rutin.",
+    "persona3-tag": "Kewangan",
+    "persona3-name": "Rakan Kewangan",
+    "persona3-desc": "Hasilkan ringkasan kewangan, jejaki hasil, dan berikan pandangan prestasi perniagaan dalam bahasa mudah.",
+    "persona4-tag": "Pematuhan",
+    "persona4-name": "Rakan Pematuhan",
+    "persona4-desc": "Bantu urusan SST, e-Invois (LHDN), dan pembaharuan SSM. Pastikan perniagaan anda patuh undang-undang tanpa kekeliruan.",
+
+    /* ── ARCHITECTURE SECTION ── */
+    "arch-eyebrow": "Seni Bina Teknikal",
+    "arch-h2": "Pembantu Perniagaan 24/7 Anda,<br><em>Didedahkan</em>",
+    "arch-body": "Lihat di sebalik tabir. Enjin Wawasan Lanjutan kami menggunakan saluran paip RAG, dikuasakan oleh DeepSeek-R1, untuk mengubah data perniagaan anda kepada tindakan pintar.",
+    "arch-tab1": "Seni Bina CX",
+    "arch-tab2": "Saluran Paip RAG",
+    "arch-tab3": "Infrastruktur LLMOps",
+    "arch-badge-live": "Langsung",
+    "arch-badge-deepseek": "DeepSeek-R1",
+    "arch-badge-prod": "Pengeluaran",
+    "arch-p0-title": "Seni Bina Pengalaman Pelanggan",
+    "arch-p0-subtitle": "Aliran perbualan hujung ke hujung & integrasi saluran",
+    "arch-p0-cap-label": "Lapisan Pengalaman Pelanggan",
+    "arch-p0-cap-desc": "Memetakan perjalanan penuh dari titik sentuh pelanggan (WhatsApp, Telegram, Web) melalui lapisan orkestrasi AI kepada hasil perniagaan — pesanan, tempahan, dan kemas kini CRM.",
+    "arch-p1-title": "Saluran Paip Penjanaan Tertambat Pengambilan Semula",
+    "arch-p1-subtitle": "Pengambilan dokumen → pembenaman → pengambilan semula → penjanaan",
+    "arch-p1-cap-label": "Enjin RAG — Dikuasakan oleh DeepSeek-R1",
+    "arch-p1-cap-desc": "Katalog produk dan Soalan Lazim yang dimuat naik dipotong, dibenamkan, dan disimpan dalam pangkalan data vektor. Semasa runtime, bahagian yang relevan secara semantik diambil dan disuntik ke dalam konteks LLM.",
+    "arch-p2-title": "Infrastruktur LLMOps",
+    "arch-p2-subtitle": "Penyajian model, pemantauan, penilaian & gelung maklum balas",
+    "arch-p2-cap-label": "Tindanan LLMOps Pengeluaran",
+    "arch-p2-cap-desc": "Merangkumi kitaran hayat operasi penuh — versi model, penilaian A/B, pemantauan kependaman, penjaga, dan gelung penambahbaikan berterusan yang memastikan AI anda tepat dari masa ke masa.",
+
+    /* ── ECOSYSTEM SECTION ── */
+    "eco-eyebrow": "Integrasi Ekosistem",
+    "eco-h2": "Bersambung dengan setiap<br><em>sistem kritikal</em>",
+    "eco-body": "AI Rakan Niaga beroperasi melalui WhatsApp — aplikasi yang setiap rakyat Malaysia sudah gunakan — bersambung dengan ekosistem peraturan dan perdagangan penuh.",
+    "eco-web-name": "Widget Web",
+    "eco-web-desc": "Benam pada mana-mana laman web",
+    "eco-node-label": "AI Rakan Niaga",
+    "eco-node-powered": "Dikuasakan oleh DeepSeek-R1 + RAG",
+    "eco-ssm-name": "SSM",
+    "eco-ssm-desc": "Suruhanjaya Syarikat Malaysia",
+    "eco-lhdn-name": "LHDN",
+    "eco-lhdn-desc": "e-Invois & pematuhan cukai",
+
+    /* ── CTA ── */
+    "cta-title": "Bersedia untuk berhenti<br><em>kehilangan pelanggan?</em>",
+    "cta-sub": "Sertai 5,200+ perniagaan Malaysia. Percuma 14 hari — tiada kad diperlukan.",
+    "cta-btn1": "Mulai Sekarang →",
+
+    /* ── FOOTER ── */
+    "footer-addr": "A-3-7, Viva Residency (Komersial), Off Jalan Ipoh, 51200, Kuala Lumpur.",
+    "footer-company": "Syarikat",
+    "footer-who": "Siapa Kami",
+    "footer-expertise": "Kepakaran Kami",
+    "footer-microsoft": "Microsoft",
+    "footer-campaign": "Kempen AI",
+    "footer-dapur": "Dapur Digital",
+    "footer-impact": "Impak Kami",
+    "footer-support": "Sokongan",
+    "footer-faq": "Soalan Lazim",
+    "footer-work": "Bekerja Bersama Kami",
+    "footer-copy": "© 2026 Pepper Labs. Hak cipta terpelihara.",
+    "footer-badge1": "Dibuat di Malaysia 🇲🇾",
+    "footer-badge2": "Dikuasakan oleh DeepSeek-R1"
   },
+
   ch: {
-    "nav-home":"首页","nav-rag-architecture":"工作流程","nav-login":"登录","nav-try":"免费试试 →",
-    "hero-badge":"为马来西亚中小企业打造 · 无需培训",
-    "hero-title":"您的业务，<br>始终<em>开放</em>",
-    "hero-sub":"97%的马来西亚企业是中小企业——忙于生存，无暇扩张。AI Rakan Niaga改变这一切。销售更多、运营更顺、合规无忧。只需聊天。",
-    "hero-btn1":"开始免费 →",
-    "chat-name":"AI Rakan Niaga","chat-status":"在线 · 24/7",
-    "chat-msg1":"欢迎！我今天可以帮你吗？😊",
-    "chat-msg2":"有 M 号的库隆克吗？价格多少？",
-    "chat-msg3":"有！3 种颜色 — 深蓝、栗色、奶油色。价格 <b>RM89</b>。想看图片吗？👗",
-    "trust-4":"永远不会错过客户","trust-5":"设置，无需编码",
-    "cta-title":"准备停止<br><em>失去客户？</em>",
-    "cta-sub":"加入 5,200 多家马来西亚企业。免费 14 天 — 无需卡。",
-    "cta-btn1":"立即开始 →",
-    "footer-addr":"A-3-7, Viva Residency (Commercial), Off Jalan Ipoh, 51200, Kuala Lumpur.",
-    "footer-company":"公司","footer-who":"关于我们","footer-expertise":"我们的专业",
-    "footer-microsoft":"微软","footer-campaign":"AI 活动","footer-dapur":"Dapur Digital","footer-impact":"我们的影响",
-    "footer-support":"支持","footer-faq":"常见问题","footer-work":"与我们合作",
-    "footer-copy":"© 2026 Pepper Labs. 保留所有权利。"
+    /* ── NAV ── */
+    "nav-home": "首页",
+    "nav-persona": "AI 角色",
+    "nav-rag-architecture": "工作流程",
+    "nav-ecosystem": "生态系统",
+    "nav-login": "登录",
+    "nav-try": "免费试用 →",
+
+    /* ── LOGIN / SIGNUP MODAL ── */
+    "login-tagline": "AI Rakan Niaga — 您的商业伙伴",
+    "auth-tab-login": "登录",
+    "auth-tab-signup": "注册",
+    "login-google": "使用 Google 继续",
+    "signup-google": "使用 Google 注册",
+    "or-divider-login": "或使用电子邮件继续",
+    "or-divider-signup": "或使用电子邮件注册",
+    "field-name": "全名",
+    "field-email": "电子邮件地址",
+    "field-password": "密码",
+    "field-password-new": "密码",
+    "placeholder-name": "您的姓名",
+    "placeholder-email": "您@示例.com",
+    "placeholder-password": "您的密码",
+    "placeholder-password-new": "至少 8 个字符",
+    "forgot-password": "忘记密码？",
+    "btn-login": "登录 →",
+    "btn-login-loading": "登录中…",
+    "btn-signup": "创建免费帐户 →",
+    "btn-signup-loading": "正在创建帐户…",
+    "signup-success-title": "成功！",
+    "signup-success-msg": "请检查您的电子邮件以验证帐户。",
+    "login-switch": "没有帐户？<a href=\"#\" onclick=\"switchTab('signup')\">免费注册</a>",
+    "signup-terms": "注册即表示您同意我们的 <a href=\"#\">条款</a> 和 <a href=\"#\">隐私政策</a>。<br>已有帐户？<a href=\"#\" onclick=\"switchTab('login')\">登录</a>",
+
+    /* ── FORM VALIDATION ERRORS ── */
+    "err-name-required": "请输入您的姓名。",
+    "err-email-required": "请输入您的电子邮件地址。",
+    "err-email-invalid": "该电子邮件地址无效。",
+    "err-password-required": "请输入您的密码。",
+    "err-password-short": "密码必须至少 6 个字符。",
+    "err-password-long": "密码必须至少 8 个字符。",
+    "err-no-account": "未找到该电子邮件的帐户，请尝试注册。",
+
+    /* ── HERO ── */
+    "hero-badge": "专为马来西亚中小企业打造 · 无需培训",
+    "hero-title": "您的业务，<br>始终<em>开放</em>",
+    "hero-sub": "97% 的马来西亚企业是中小企业——忙于生存，无暇扩张。AI Rakan Niaga 改变这一切。销售更多、运营更顺、合规无忧，只需聊天。",
+    "hero-btn1": "开始免费使用 →",
+
+    /* ── CHAT WIDGET ── */
+    "chat-name": "AI Rakan Niaga",
+    "chat-status": "在线 · 24/7",
+    "chat-msg1": "欢迎！我今天可以帮你吗？😊",
+    "chat-msg2": "有 M 号的库隆克吗？价格多少？",
+    "chat-msg3": "有！3 种颜色 — 深蓝、栗色、奶油色。价格 <b>RM89</b>。想看图片吗？👗",
+
+    /* ── TRUST BAR ── */
+    "trust-1": "的所有企业均为中小企业",
+    "trust-2": "销售转化率提升",
+    "trust-3": "客户响应更快",
+    "trust-admin": "降低行政成本",
+    "trust-4": "永远不会错过客户",
+    "trust-5": "设置仅需，无需编码",
+
+    /* ── AI PERSONAS SECTION ── */
+    "persona-eyebrow": "AI 角色",
+    "persona-h2": "四位 AI 伙伴，<br><em>一个平台</em>",
+    "persona-body": "每个 AI 角色专为特定业务功能而建——无需培训，只需聊天。",
+    "persona1-tag": "销售",
+    "persona1-name": "销售伙伴",
+    "persona1-desc": "回答产品问题、处理订单、发送跟进，并全天候转化潜在客户——即使凌晨 2 点。",
+    "persona2-tag": "运营",
+    "persona2-name": "运营伙伴",
+    "persona2-desc": "跟踪库存、管理预订、优化成本，并自动化日常运营任务。",
+    "persona3-tag": "财务",
+    "persona3-name": "财务伙伴",
+    "persona3-desc": "生成财务摘要、跟踪收入，并以通俗语言提供业务绩效洞察。",
+    "persona4-tag": "合规",
+    "persona4-name": "合规伙伴",
+    "persona4-desc": "协助处理 SST、电子发票（LHDN）和 SSM 续期，让您的企业合法合规，无需费心。",
+
+    /* ── ARCHITECTURE SECTION ── */
+    "arch-eyebrow": "技术架构",
+    "arch-h2": "您的 24/7 业务助手，<br><em>深度解析</em>",
+    "arch-body": "深入了解引擎盖下的运作。我们的高级洞察引擎使用由 DeepSeek-R1 驱动的 RAG 管道，将您的业务数据转化为基于事实的智能行动。",
+    "arch-tab1": "CX 架构",
+    "arch-tab2": "RAG 管道",
+    "arch-tab3": "LLMOps 基础设施",
+    "arch-badge-live": "实时",
+    "arch-badge-deepseek": "DeepSeek-R1",
+    "arch-badge-prod": "生产中",
+    "arch-p0-title": "客户体验架构",
+    "arch-p0-subtitle": "端到端对话流程与渠道集成",
+    "arch-p0-cap-label": "客户体验层",
+    "arch-p0-cap-desc": "从客户接触点（WhatsApp、Telegram、网页）到 AI 编排层，再到业务成果——订单、预订和 CRM 更新的完整旅程映射。",
+    "arch-p1-title": "检索增强生成管道",
+    "arch-p1-subtitle": "文档摄取 → 嵌入 → 检索 → 生成",
+    "arch-p1-cap-label": "RAG 引擎 — 由 DeepSeek-R1 驱动",
+    "arch-p1-cap-desc": "您上传的产品目录和常见问题将被分块、嵌入并存储在向量数据库中。运行时，语义相关的块将被检索并注入 LLM 上下文中，以获得基于事实的准确回答。",
+    "arch-p2-title": "LLMOps 基础设施",
+    "arch-p2-subtitle": "模型服务、监控、评估与反馈循环",
+    "arch-p2-cap-label": "生产 LLMOps 技术栈",
+    "arch-p2-cap-desc": "涵盖完整运营生命周期——模型版本控制、A/B 评估、延迟监控、护栏以及持续改进循环，确保您的 AI 随时间保持准确且符合品牌形象。",
+
+    /* ── ECOSYSTEM SECTION ── */
+    "eco-eyebrow": "生态系统集成",
+    "eco-h2": "连接每一个<br><em>关键系统</em>",
+    "eco-body": "AI Rakan Niaga 通过 WhatsApp 运行——每个马来西亚人都已在使用的应用——连接到完整的监管和商业生态系统。",
+    "eco-web-name": "网页小部件",
+    "eco-web-desc": "嵌入任何网站",
+    "eco-node-label": "AI Rakan Niaga",
+    "eco-node-powered": "由 DeepSeek-R1 + RAG 驱动",
+    "eco-ssm-name": "SSM",
+    "eco-ssm-desc": "马来西亚公司委员会",
+    "eco-lhdn-name": "LHDN",
+    "eco-lhdn-desc": "电子发票与税务合规",
+
+    /* ── CTA ── */
+    "cta-title": "准备停止<br><em>错失客户？</em>",
+    "cta-sub": "加入 5,200 多家马来西亚企业。免费 14 天——无需信用卡。",
+    "cta-btn1": "立即开始 →",
+
+    /* ── FOOTER ── */
+    "footer-addr": "A-3-7, Viva Residency（商业），Off Jalan Ipoh，51200，吉隆坡。",
+    "footer-company": "公司",
+    "footer-who": "关于我们",
+    "footer-expertise": "我们的专业",
+    "footer-microsoft": "微软",
+    "footer-campaign": "AI 活动",
+    "footer-dapur": "Dapur Digital",
+    "footer-impact": "我们的影响",
+    "footer-support": "支持",
+    "footer-faq": "常见问题",
+    "footer-work": "与我们合作",
+    "footer-copy": "© 2026 Pepper Labs. 保留所有权利。",
+    "footer-badge1": "马来西亚制造 🇲🇾",
+    "footer-badge2": "由 DeepSeek-R1 驱动"
   }
 };
 
+window._currentLang = 'en';
+
 function setLanguage(lang) {
-  if (!translations[lang]) return;
+  if (!window.translations[lang]) return;
+  window._currentLang = lang;
   localStorage.setItem('ai-rakan-lang', lang);
   document.documentElement.lang = lang;
+
+  // Apply innerHTML translations (data-i18n)
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (translations[lang][key] !== undefined) el.innerHTML = translations[lang][key];
+    if (window.translations[lang][key] !== undefined) {
+      el.innerHTML = window.translations[lang][key];
+    }
   });
+
+  // Apply placeholder translations (data-i18n-placeholder)
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (window.translations[lang][key] !== undefined) {
+      el.setAttribute('placeholder', window.translations[lang][key]);
+    }
+  });
+
+  // Update active language button
   document.querySelectorAll('.l-btn').forEach(btn => btn.classList.remove('active'));
   const ab = document.querySelector(`.l-btn[data-lang="${lang}"]`);
   if (ab) ab.classList.add('active');
 }
-window.setLanguage = setLanguage;
 
+// Restore saved language on load
 (function() {
   const saved = localStorage.getItem('ai-rakan-lang');
   if (saved && saved !== 'en') setLanguage(saved);
